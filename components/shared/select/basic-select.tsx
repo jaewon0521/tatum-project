@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "../../ui/select";
 
-type TSelectItem = {
+export type TSelectItem = {
   value: string;
   label: string;
 };
