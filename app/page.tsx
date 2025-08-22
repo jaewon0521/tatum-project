@@ -4,6 +4,8 @@ import SearchLayer from "@/components/layer/search-layer";
 import BasicTable from "@/components/shared/table/basic-table";
 import { BasicTab } from "@/components/shared/tab";
 import { CloudManageSearchItems } from "./constants/search-items";
+import TableToolbarLayer from "@/components/layer/table-toolbar-layer";
+
 const columns = [
   "Provider",
   "Account",
@@ -55,22 +57,29 @@ export default function Home() {
   return (
     <div className="w-full h-screen">
       <div className="py-2 px-4">
-        <BasicBreadcrumb title="Cloud Management" />
+        <div>
+          <BasicBreadcrumb title="Cloud Management" />
+        </div>
         <h1 className="text-3xl font-bold mt-2 mb-4">Cloud Management</h1>
         <div className="mb-4">
           <BasicTab />
         </div>
-        <div className="flex flex-col gap-4 mb-4">
+        <section className="flex flex-col gap-4 mb-4">
           <SearchLayer items={CloudManageSearchItems} />
           <FilterLayer />
-        </div>
-        <div className="w-full h-[3px] bg-gray-400 mb-4"></div>
-        <div>
+        </section>
+        <div className="w-full h-[2px] bg-gray-400 mb-4"></div>
+        <section>
           <div className="px-3 mb-6">
-            <span className="text-sm text-gray-500">Total 71</span>
+            <div className="flex justify-between">
+              <span className="text-sm text-gray-500 font-semibold">
+                Total 71
+              </span>
+              <TableToolbarLayer />
+            </div>
           </div>
           <BasicTable columns={columns} rows={rows} />
-        </div>
+        </section>
       </div>
     </div>
   );
